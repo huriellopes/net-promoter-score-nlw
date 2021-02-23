@@ -1,0 +1,32 @@
+version: "3"
+
+# Serviços
+services:
+  server:
+    container_name: api
+    build: ./docker/
+    environment:
+      - NODE_ENV=dev
+    volumes:
+      - ./:/app
+    ports:
+      - "${APP_PORT}:3333"
+    command: [yarn,dev]
+    networks:
+      - private_network
+  database:
+    container_name: apidb
+    image: postgres
+    environment:
+      POSTGRES_USER: "postgres"
+      POSTGRES_PASSWORD: "YOUR_PASSWORD"
+      POSTGRES_DB: "DATABASE_NAME"
+    restart: always
+    # ports:
+    #   - "5432:5432" # Descomente, caso queira acessar o banco de dados
+    networks:
+      - private_network
+
+# Rede Privada entre containers
+networks:
+  private_network:

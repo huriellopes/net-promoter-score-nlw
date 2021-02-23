@@ -1,0 +1,23 @@
+FROM node:lts-alpine
+
+MAINTAINER Huriel Lopes <huriellopes1996@gmail.com>
+
+RUN apk --update add --no-cache \
+    yarn \
+    vim
+
+RUN rm -Rf /var/cache/apk/*
+
+RUN mkdir -p /app
+
+WORKDIR /app
+
+RUN chmod -R 777 /app
+
+COPY . .
+
+RUN yarn install
+
+EXPOSE 3333
+
+CMD ./start.sh

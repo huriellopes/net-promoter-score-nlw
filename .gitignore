@@ -1,0 +1,22 @@
+# App
+dist/
+.env
+docker-compose.yml
+
+# IDEs
+
+## Jetbrains
+.idea/
+
+## VisualStudioCode
+.vscode/
+*.code-workspace
+
+# Operating system metadata files
+.DS_Store
+._*
+
+# Package manager
+yarn-error.log
+node_modules/
+yarn.lock
