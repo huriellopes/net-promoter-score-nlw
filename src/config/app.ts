@@ -6,7 +6,7 @@ export = {
   | Determina o escopo do ambiente de execução
   |-----------------------------------------------------------------------------
   */
-  env: env('APP_ENV', 'development'),
+  env: env('APP_DEBUG', 'development'),
 
   /**
   |-----------------------------------------------------------------------------

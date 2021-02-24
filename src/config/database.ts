@@ -1,7 +1,9 @@
+import path from 'path'
+
 import { env } from '../helpers/environment'
 
 export = {
-  driver: env('DB_CONNECTION', 'sqlite'),
+  driver: env('DB_CONNECTION', 'postgres'),
 
   /**
   |-----------------------------------------------------------------------------
@@ -12,12 +14,15 @@ export = {
   |
   */
   sqlite: {
-    client: 'sqlite3',
-    connection: {
-      filename: env('DB_DATABASE', ''),
+    type: env('DB_CONNECTION', 'sqlite'),
+    database: env('DB_FILENAME', ''),
+    logging: env('APP_DEBUG', false),
+    entities: ['./src/app/models/**.ts'],
+    migrations: ['./src/database/migrations/**.ts'],
+    cli: {
+      migrationsDir: ['./src/database/migrations'],
+      entitiesDir: ['./src/app/models'],
     },
-    useNullAsDefault: true,
-    debug: env('DB_DEBUG', false),
   },
 
   /**
@@ -29,15 +34,20 @@ export = {
   |
   */
   mysql: {
-    client: 'mysql',
-    connection: {
-      host: env('DB_HOST', 'localhost'),
-      port: parseInt(env('DB_PORT', 3306)),
-      user: env('DB_USER', 'root'),
-      password: env('DB_PASSWORD', ''),
-      database: env('DB_DATABASE', ''),
+    type: env('DB_CONNECTION', 'mysql'),
+    host: env('DB_HOST', 'localhost'),
+    port: parseInt(env('DB_PORT', 3306)),
+    username: env('DB_USER', 'root'),
+    password: env('DB_PASS'),
+    database: env('DB_NAME', ''),
+    synchronize: true,
+    logging: env('APP_DEBUG', false),
+    entities: ['./src/app/models/**.ts'],
+    migrations: ['./src/database/migrations/**.ts'],
+    cli: {
+      migrationsDir: ['./src/database/migrations'],
+      entitiesDir: ['./src/app/models'],
     },
-    debug: env('DB_DEBUG', false),
   },
 
   /**
@@ -48,15 +58,21 @@ export = {
   | Para usar é necessário adicionar o pacote: pg
   |
   */
-  pg: {
-    client: 'pg',
-    connection: {
-      host: env('DB_HOST', 'localhost'),
-      port: parseInt(env('DB_PORT', 5432)),
-      user: env('DB_USER', 'root'),
-      password: env('DB_PASSWORD', ''),
-      database: env('DB_DATABASE', ''),
+  postgres: {
+    name: 'default',
+    type: env('DB_CONNECTION', 'postgres'),
+    host: env('DB_HOST', 'localhost'),
+    port: parseInt(env('DB_PORT', 5432)),
+    username: env('DB_USER', 'postgres'),
+    password: env('DB_PASS'),
+    database: env('DB_NAME', ''),
+    synchronize: true,
+    logging: env('APP_DEBUG', false),
+    entities: ['./src/app/models/**.ts'],
+    migrations: ['./src/database/migrations/**.ts'],
+    cli: {
+      migrationsDir: ['./src/database/migrations'],
+      entitiesDir: ['./src/app/models'],
     },
-    debug: env('DB_DEBUG', false),
   },
 }

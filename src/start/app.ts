@@ -31,6 +31,7 @@ app.use((err: Error, req: Request, res: Response, _: NextFunction) => {
   }
 
   if (config('app.debug')) {
+    console.log(err)
     return res.status(400).json({ status: 'error debug', message: err })
   } else {
     return res
