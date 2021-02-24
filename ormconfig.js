@@ -15,7 +15,7 @@ function TypeOrm() {
     console.log(connectionData[driver].migrations)
 
     if (
-      connectionData[driver].type === 'sqlite' &&
+      !connectionData[driver].type === 'sqlite' &&
       connectionData[driver].database !== ''
     ) {
       throw `Error: database name not entered!`

@@ -20,3 +20,6 @@ docker-compose.yml
 yarn-error.log
 node_modules/
 yarn.lock
+
+# Database
+src/database/database.sqlite

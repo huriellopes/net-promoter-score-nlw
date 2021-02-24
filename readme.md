@@ -2,7 +2,18 @@
 
 > Aplicação proposta na semana 4° Semana Next Level Week realizada pela Rocketseat, ministrada pela Daniele Evangelista.
 
-## Testando a aplicação:
+## 📖 O que foi feito:
+
+  - Drivers Database:
+    - Mysql
+    - PostgreSQL
+    - Sqlite3
+  - Handler Error
+  - Docker Container
+  - eslint
+  - prettier
+
+## ⚒️ Testando a aplicação:
 
 > Você pode realizar o clone deste repositório ou baixar o arquivo .zip
 
@@ -38,13 +49,34 @@ copy .env.example .env ou cp .env.example .env
 > Em seguida configure o .env!
 
 ````
+# Para usar o driver PostgreSQL => Já vem instalado por padrão
 DB_CONNECTION="postgres"
 DB_HOST="apidb" # ou localhost
 DB_PORT=5432
 DB_USER=
 DB_PASS=
 DB_NAME=
+
+# Para usar o driver sqlite, execute o comando a baixo e em seguida configure o .env:
+
+yarn add -D sqlite3 or npm install --dev sqlite3
+
+DB_CONNECTION="sqlite"
+DB_FILENAME=".src/database/database.sqlite"
+
+#Para usar o driver mysql, execute o comando abaixo e em seguida configure o .env:
+
+yarn add -D mysql or npm install --dev mysql
+
+DB_CONNECTION="mysql"
+DB_HOST="localhost"
+DB_PORT=3306
+DB_USER=
+DB_PASS=
+DB_NAME=
 ````
+
+> Obs.: no docker, só está instalado o banco postgreSQL.
 
 ### Depois de configurado, rode o seguinte comando, para subir o ambiente docker:
 
