@@ -1,8 +1,8 @@
 # 🤑 Net Promoter Score
 
-> Aplicação proposta na semana 4° Semana Next Level Week realizada pela Rocketseat, ministrada pela Daniele Evangelista.
+> Aplicação proposta na semana 4° Semana Next Level Week realizada pela Rocketseat, ministrada pela Daniele Leão Evangelista.
 
-## 📖 O que foi feito:
+## 📖 O que foi feito e usado:
 
   - Drivers Database:
     - Mysql
@@ -12,6 +12,10 @@
   - Docker Container
   - eslint
   - prettier
+  - Celebrate
+  - Cors
+  - Yup
+  - Typeorm
 
 ## ⚒️ Testando a aplicação:
 
@@ -139,6 +143,11 @@ yarn dev
 ````
 
 > Para ter certeza que o projeto está rodando, importe o arquivo json "requests-api" do insomnia, para ter todas requisições do projeto. E teste a rota "Test Api".
+
+## Credits
+
+- Rocketseat
+- [Site](https://rocketseat.com.br)
 
 ## 🔖 License
 

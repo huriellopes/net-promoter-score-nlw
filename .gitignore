@@ -23,3 +23,4 @@ yarn.lock
 
 # Database
 src/database/database.sqlite
+src/database/database.test.sqlite
